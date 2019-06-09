@@ -1,0 +1,120 @@
+body {
+  background: #005f61;
+}
+
+.reveal section img {
+  border-radius: 1.5rem;
+  padding: 0.25rem;
+  background: #fff;
+  background: rgba(255, 255, 255, 0.5);
+  max-height: 80vh;
+}
+
+.reveal {  
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-attachment: fixed;
+  
+  }
+
+.reveal .single-emoji p {
+  font-size: 500%;
+}
+
+.reveal pre {
+  border: 4px solid #fff;
+  border-radius: 1rem;
+}
+
+.reveal pre code {
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+img[alt$=">"] {
+  float:right;
+}
+
+img[alt$="<"] {
+  float:left;
+}
+
+img[alt$="<>"] {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+    float: none!important;
+}
+  
+	  @media print {
+  .backgrounds {
+    background-color: #005f61;
+    }
+ 
+}
+  .clockdiv{
+    font-family: sans-serif;
+    color: #fff;
+    display: inline-block;
+    font-weight: 100;
+    text-align: center;
+    font-size: 10px;
+  }
+  
+  
+.clock {
+  background: black;
+  justify-content: center;
+  width: 22%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: white;
+  font-size: 25vh;
+  font-family: sans-serif;
+  line-height: 25vh;
+  display: flex;
+  position: relative;
+  /*background: green;*/
+  overflow: hidden;
+}
+
+.clock::before, .clock::after {
+  content: '';
+  width: 7ch;
+  height: 3vh;
+  background: linear-gradient(to top, transparent, black);
+  position: absolute;
+  z-index: 2;
+}
+
+.clock::after {
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent, black);
+}
+
+.clock > div {
+  display: flex;
+}
+
+.tick {
+  line-height: 17vh;
+}
+
+.tick-hidden {
+  opacity: 0;
+}
+
+.move {
+  animation: move linear 1s infinite;
+}
+
+@keyframes move {
+  from {
+    transform: translateY(0vh);
+  }
+  to {
+    transform: translateY(-20vh);
+  }
+}

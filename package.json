@@ -1,0 +1,21 @@
+{
+  "name": "Ciclo-de-Vida-Verde-Bitcoin",
+  "version": "2018.09.001",
+  "description": "CERTUNP",
+  "repository": "https://gitlab.linti.unlp.edu.ar:einar/Cursos.git",
+  "author": "Soporte CERT <soporte@cert.unlp.edu.ar>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "reveal-md --css css/styles.css",
+    "dev": "yarn build -w",
+    "print": "yarn build presentacion/ciclodevidaverde.md --print pdf/slides.pdf",
+    "static": "yarn build --static _export"
+  },
+  "dependencies": {
+    "chromium": "^1.0.2",
+    "puppeteer": "^1.13.0",
+    "puppeteer-core": "^1.8.0",
+    "reveal-md": "^2.0.5"
+  }
+}
