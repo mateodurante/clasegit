@@ -1,5 +1,5 @@
 {
-  "name": "Ciclo-de-Vida-Verde-Bitcoin",
+  "name": "git",
   "version": "2018.09.001",
   "description": "CERTUNP",
   "repository": "https://gitlab.linti.unlp.edu.ar:einar/Cursos.git",
@@ -9,7 +9,7 @@
   "scripts": {
     "build": "reveal-md --css css/styles.css",
     "dev": "yarn build -w",
-    "print": "yarn build presentacion/ciclodevidaverde.md --print pdf/slides.pdf",
+    "print": "yarn build presentacion/git.md --print pdf/slides.pdf",
     "static": "yarn build --static _export"
   },
   "dependencies": {

@@ -1,8 +1,8 @@
 ---
-title: Clase de Git básico
-subtitle: Unidad 1
+title: Clase de Git/Github básico
+subtitle: Introducción a Git
 author: Tomás Barbieri - Mateo Durante
-description: Clase de Git básico hecho para alumnos de Python
+description: Clase de Git básico hecho para alumnos del Seminario de lenguajes - Herramientas pensadas para el seminario opción Python
 keywords: Introduction
 theme: league
 highlightTheme: atom-one-dark
@@ -12,10 +12,11 @@ revealOptions:
   transition: slide
 ---
 
-## Explicación práctica - Git/Gitlab
+## Explicación práctica - Git/Github
 
 
 ![terminos](../imagenes/unlp.png)<!-- .element style="width:20%;margin:5%;vertical-align:bottom" -->
+![terminos](imagenes/info.png)<!-- .element style="width:20%;margin:5%;vertical-align:bottom" -->
 
 ----
 
@@ -35,18 +36,16 @@ https://git-scm.com/book/es/v1/Empezando-Acerca-del-control-de-versiones
 
 ----
 
-## Gitlab
+## [Github](https://github.com/)
 <!-- .slide: style="font-size: 35px;"> -->  
 
-GitLab es una aplicación opensource que nos permite administrar repositorios en git mediante una interfaz web.
+Github es una aplicación opensource que nos permite administrar repositorios en git mediante una interfaz web.
 - Perfil
-- **Generación y configuración de clave [SSH](https://gitlab.catedras.linti.unlp.edu.ar/help/ssh/README)**
-- Actividades
-- Repositorio
-- Gráficos
-- Issues, board y milestones
-- Wiki
-- CI / CD
+- Repositorios propios (públicos o privados).
+- **Generación y configuración de clave [SSH](https://help.github.com/en/articles/connecting-to-github-with-ssh)**
+- Red social de desarrolladores/as.
+- Una [pagina web](https://pages.github.com/) por proyecto.
+- Toda la [ayuda](https://help.github.com/en#dotcom) de Github.
 
 
 ----
@@ -54,7 +53,7 @@ GitLab es una aplicación opensource que nos permite administrar repositorios en
 ## Usando clave SSH
 
 - Agregar la clave SSH es para toda la plataforma de Git.
-- Sirve para que el servidor te reconozca y no pida usuario y contraseña cada en cada commit.
+- Sirve para que el servidor te reconozca y no pida usuario y contraseña cada en cada push.
 - **Nunca cargar en tu cuenta personal la clave pública de una PC que es compartida** ya que cualquiera podría modificar en tu nombre.
 
 
@@ -72,7 +71,7 @@ GitLab es una aplicación opensource que nos permite administrar repositorios en
 
     Con esto se han creado las claves pública y privada. Las clave privada nunca debe ser compartida. La clave privada te identifica frente a otros dispositivos.
 
-2. Copiar la clave pública al servidor Gitlab. Ésta se ubica en el archivo ~/.ssh/id_rsa.pub
+2. Copiar la clave pública al servidor Github. Ésta se ubica en el archivo ~/.ssh/id_rsa.pub
 
     ```bash
     $ cat ~/.ssh/id_rsa.pub
@@ -103,10 +102,10 @@ GitLab es una aplicación opensource que nos permite administrar repositorios en
 <!-- .slide: style="font-size: 30px;"> -->  
 
 ```bash
-A@pcA$ mkdir proyecto1
-A@pcA$ cd proyecto1
+A@pcA$ mkdir python1
+A@pcA$ cd python1
 A@pcA$ git init
-A@pcA$ git remote add origin https://gitlab.catedras.linti.unlp.edu.ar/proyecto2017/grupoXX.git 
+A@pcA$ git remote add origin https://github.com/minuevorepo.git 
 ```
 
 \# Creamos una carpeta, inicializamos y le decimos a git cuál es su servidor-proyecto<!-- .element style="margin:5%;vertical-align:bottom" -->
@@ -116,8 +115,8 @@ A@pcA$ git remote add origin https://gitlab.catedras.linti.unlp.edu.ar/proyecto2
 ## Inicialización en “computer A”: Opcion 2
 
 ```bash
-A@pcA$ mkdir proyecto1
-A@pcA$ cd proyecto1
+A@pcA$ mkdir python1
+A@pcA$ cd python1
 A@pcA$ git init
 A@pcA$ touch README.md
 A@pcA$ git add README.md
@@ -131,8 +130,8 @@ A@pcA$ git status
 ## Inicialización en “computer A”: Opcion 3
 
 ```bash
-A@pcA$ mkdir proyecto1
-A@pcA$ cd proyecto1
+A@pcA$ mkdir python1
+A@pcA$ cd python1
 A@pcA$ git init
 A@pcA$ touch README.md
 A@pcA$ git add README.md
@@ -151,12 +150,12 @@ A@pcA$ git push origin master
 
 ![Workflow Push](imagenes/workflow1.png)
 
-----
+<!-- ----
 
 #### ¿Qué sigue?
 
 
-![Workflow Pull](imagenes/workflow2.png)
+![Workflow Pull](imagenes/workflow2.png) -->
 
 
 ----
@@ -164,8 +163,8 @@ A@pcA$ git push origin master
 ## ¿Qué hacemos en “computer B”?
 
 ```bash
-B@pcB$ git clone https://gitlab.catedras.linti.unlp.edu.ar/proyecto2017/grupoXX.git
-B@pcB$ echo “GrupoXX” >> README.md
+B@pcB$ git clone https://github.com/minuevorepo.git
+B@pcB$ echo “Hola mundo” >> README.md
 B@pcB$ git add .
 B@pcB$ git commit “cambio en readme”
 B@pcB$ git push origin master
@@ -178,7 +177,7 @@ B@pcB$ git push origin master
 ## Seguimos trabajando y recibimos los cambios en A
 
 ```bash
-A@pcA$ echo “Otra cosa” >> README.md
+A@pcA$ echo Chau mundo” >> README.md
 A@pcA$ git commit -m “nuevos cambios”
 A@pcA$ git pull
 ```
@@ -251,3 +250,29 @@ Lo ideal sería tener las ramas:
 - ***develop***: es la primera rama que debería crearse y de acá se desprenden las siguientes. En esta rama nadie debería pushear, se hacen merge desde “feature-*” (nuevas funcionalidades) o “fix-*” (reparar una funcionalidad previamente creada).
 - ***feature-* ***: ésta, al igual que “fix-*”, son creadas a partir de develop y dependen de un “issue”, donde puede trabajar una o más personas respecto a una funcionalidad o bug específico, evitando influir así en el resto de los desarrolladores.
 
+----
+
+## Para finalizar
+
+En git existe un archivo muy importante que en proyectos grandes siempre se usa:
+
+
+**.gitignore**
+
+----
+
+## .gitignore
+
+Es un archivo de texto en el que se agregan carpetas y archivos que no querramos que *git* los 'trackee', es decir, que no los suba ni baje del repositorio. Por ejemplo: 
+* Archivos de configuracion (Base de datos, editor de texto)
+* Dependencias (PySimpleGUI, pattern, etc)
+* Mas cosas que no querramos
+
+----
+
+### Links de interés
+
+* [Listado de comandos](https://github.github.com/training-kit/downloads/es_ES/github-git-cheat-sheet.pdf)
+* [Github guides](https://guides.github.com/introduction/git-handbook/)
+* [Una guía sencilla de git](https://rogerdudler.github.io/git-guide/index.es.html)
+* [Libro: Pro git](https://git-scm.com/book/es/v2)
